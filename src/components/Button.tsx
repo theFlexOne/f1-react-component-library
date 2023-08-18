@@ -6,9 +6,9 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
-const DEFAULT_BUTTON_COLOR = "blue-500";
-
 const defaultClasses: string[] = [
+  "bg-blue-500",
+  "hover:bg-blue-600",
   "font-bold",
   "py-2",
   "px-4",
@@ -24,32 +24,27 @@ const defaultClasses: string[] = [
   "ease-in-out",
 ];
 
-function consolidateButtonClasses(...classes: (string | string[])[]): string {
-  const buttonClasses: string[] = twMerge(...classes).split(" ");
-  const bgClasses: string[] = buttonClasses.filter((c) => c.includes("bg-"));
-  if (bgClasses.length < 1) {
-    buttonClasses.push(`bg-${DEFAULT_BUTTON_COLOR}`);
-  }
-  return buttonClasses.join(" ");
-}
-
-const Button = ({ children, className = "", ...props }: ButtonProps) => {
+const Button = ({ children, className = "", ...rest }: ButtonProps) => {
   const ref = useRef<HTMLButtonElement>(null);
 
-  const buttonClasses = consolidateButtonClasses(defaultClasses, className);
+  const buttonClasses = twMerge(defaultClasses, className);
 
   useEffect(() => {
     if (!ref.current) return;
-    const bgColor = getComputedStyle(ref.current).backgroundColor;
-    const text = colorContrastFromRGB(bgColor);
-    ref.current.style.color = text;
+    setTextColor(ref.current);
   }, []);
 
   return (
-    <button ref={ref} className={buttonClasses} {...props}>
+    <button ref={ref} className={buttonClasses} {...rest}>
       {children}
     </button>
   );
 };
+
+function setTextColor(el: HTMLButtonElement) {
+  const bgColor = getComputedStyle(el).backgroundColor;
+  const text = colorContrastFromRGB(bgColor);
+  el.style.color = text;
+}
 
 export default Button;

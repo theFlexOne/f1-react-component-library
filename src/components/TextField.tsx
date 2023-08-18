@@ -27,6 +27,7 @@ const defaultLabelClasses = [
   "bg-white",
   "px-1",
   "text-gray-400",
+  "bg-transparent",
   "text-sm",
   "pointer-events-none",
   "peer-data-[empty=false]:-top-3",
@@ -56,6 +57,7 @@ const TextField = ({
     <div className="relative">
       <input
         data-empty={!value}
+        name={label?.toLowerCase()}
         value={value}
         onChange={onChange}
         className={twMerge(defaultInputClasses, className, "peer")}

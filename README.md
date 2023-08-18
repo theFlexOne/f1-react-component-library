@@ -1,27 +1,58 @@
-# React + TypeScript + Vite
+# F1 React Component Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a component library of custom React components that I commonly write, styled with Tailwind CSS.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To install the dependencies, run the following command:
 
-## Expanding the ESLint configuration
+`bash npm install`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Available Scripts
 
-- Configure the top-level `parserOptions` property like this:
+In the project directory, you can run:
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+### `npm run dev`
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Runs the app in the development mode.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.
+
+### `npm run lint`
+
+Lints the project using ESLint.
+
+### `npm run preview`
+
+Previews the built app in a local server.
+
+## Components
+
+The project includes the following components:
+
+- Button
+- Carousel
+- TextField
+
+## Helpers
+
+The project includes the following helper functions:
+
+- colorUtils
+- tailwindUtils
+
+## Utilities
+
+The project includes the following utilities:
+
+- colors
+
+## Author
+
+Eric Hafvenstein <edhavey@gmail.com>
+
+## License
+
+This project is licensed under the MIT License.
